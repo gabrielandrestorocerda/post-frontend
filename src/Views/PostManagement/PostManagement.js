@@ -2,7 +2,7 @@ import React from "react";
 
 // Consultas al back
 import axios from "axios";
-import { POST_INDEX } from "../../backend_routes";
+import { POST_INDEX, POST_CREATE } from "../../backend_routes";
 
 // Hooks importados
 import { useState, useEffect } from "react";
@@ -30,7 +30,9 @@ const PostManagement = () => {
         .catch(error => console.log(error));
     }
 
-    useEffect(()=>{ initialPosts() },[])
+    useEffect(()=>{ 
+        initialPosts()
+    },[])
 
     // Hooks
     const [posts, setPosts] = useState([])
@@ -43,10 +45,18 @@ const PostManagement = () => {
     // Crud
     const addPost = (e) => {
         e.preventDefault()
-        setPosts([
-          ...posts,
-          formulario,
-        ])
+        var data = { post: {} }
+        data['post']['post'] = formulario.post
+        data['post']['description'] = formulario.description
+        axios.post(POST_CREATE, data)
+        .then(response => {
+            setPosts([
+                ...posts,
+                response.data,
+              ])
+            console.log(posts);
+        })
+        .catch(error => console.log(error));
         reset();
     }
     
