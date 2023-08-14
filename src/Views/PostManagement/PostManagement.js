@@ -2,7 +2,7 @@ import React from "react";
 
 // Consultas al back
 import axios from "axios";
-import { POST_INDEX, POST_CREATE } from "../../backend_routes";
+import { POST_INDEX, POST_CREATE, POST_DELETE } from "../../backend_routes";
 
 // Hooks importados
 import { useState, useEffect } from "react";
@@ -61,8 +61,13 @@ const PostManagement = () => {
     }
     
     const deletePost = (dataElement) => {
-        const newPosts = posts.filter( postData => postData.post !== dataElement.post);
-        setPosts(newPosts);
+        axios.delete(POST_DELETE+'/'+dataElement.id)
+        .then(response => {
+            const newPosts = posts.filter( postData => postData.id !== response.data.id);
+            setPosts(newPosts);
+            console.log(posts);
+        })
+        .catch(error => console.log(error));
     }
 
     // Component
