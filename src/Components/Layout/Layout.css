@@ -1,0 +1,17 @@
+.layout {
+    background-color: none;
+    color: #0A283E;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout div.container {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-options{
+    background-color: #76A5AF;
+}

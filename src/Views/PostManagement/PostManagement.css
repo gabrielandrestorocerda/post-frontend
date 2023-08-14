@@ -1,0 +1,17 @@
+.options-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.columna{
+    width: 45%;
+    margin: 0 2% 0 2%;
+}
+
+.add-post-button{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: auto;
+}

@@ -1,0 +1,19 @@
+.button {
+    background-color: #76A5AF;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+.delete {
+    background-color: #E06666;
+    color: white;
+}
+
+.to-right{
+    text-align: right;
+}

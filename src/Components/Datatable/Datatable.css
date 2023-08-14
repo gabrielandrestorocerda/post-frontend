@@ -1,0 +1,29 @@
+.datatable{
+    margin: auto;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+th, td{
+    border-top: solid 1px #76A5AF;
+    padding: 10px;
+    width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.border-table{
+    border: solid 1px #76A5AF;
+}
+
+.center{
+    text-align: center;
+}
+
+thead {
+    background-color: #76A5AF;
+    border: solid 1px #76A5AF;
+    color:white;
+}
