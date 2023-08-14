@@ -1,6 +1,11 @@
-// Hooks importados
 import React from "react";
-import { useState } from "react";
+
+// Consultas al back
+import axios from "axios";
+import { POST_INDEX } from "../../backend_routes";
+
+// Hooks importados
+import { useState, useEffect } from "react";
 import useFormulario from "../../Hooks/useFormulario";
 
 // Componentes
@@ -15,11 +20,22 @@ import Textarea from "../../Components/Textarea/Textearea";
 // CSS
 import './PostManagement.css';
 
-
 const PostManagement = () => {
+    // Obtención de los post
+    const initialPosts = () =>{
+        axios.get(POST_INDEX)
+        .then(response => {
+            setPosts(response.data);
+        })
+        .catch(error => console.log(error));
+    }
+
+    useEffect(()=>{ initialPosts() },[])
+
     // Hooks
     const [posts, setPosts] = useState([])
     const [formulario, handleChange, reset] = useFormulario({ 
+        id: -1,
         post: '', 
         description: '',
     })
